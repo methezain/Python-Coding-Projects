@@ -10,7 +10,7 @@ def is_leap_year(year):
         False
 
 def no_of_days(year, month):
-    """This function returns the # number of days in a month of a year.
+    """This function returns the number of days in a month of a year.
     Inputs: year + month (int)"""
     
     days_in_months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
