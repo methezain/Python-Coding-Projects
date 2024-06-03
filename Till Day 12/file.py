@@ -1,2 +1,4 @@
-x = 10000000000000000000000000000000000000000000
-print(type(x))
+count = 0
+for i in range(1,101):
+    count += 1
+    print (count, end=" ") 
