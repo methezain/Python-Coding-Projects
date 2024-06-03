@@ -6,7 +6,7 @@ from art import number_guesser_logo
 def Guess_Number():
     print(number_guesser_logo)
     
-    random_number = random.randint(0,101)  
+    random_number = random.randint(1,100)  
      
     
     user_choice = input("\n\nChoose difficulty level. \n\nEasy\nHard.\n\n").lower()
