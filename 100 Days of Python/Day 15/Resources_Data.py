@@ -3,7 +3,7 @@ MENU = {
         "ingredients": {
             "water": 50,
             "coffee": 18,
-        },
+        }, 
         "cost": 1.5,
     },
     "latte": {
@@ -28,5 +28,6 @@ resources = {
     "water": 300,
     "milk": 200,
     "coffee": 100,
+    "money": 0
 }
 
