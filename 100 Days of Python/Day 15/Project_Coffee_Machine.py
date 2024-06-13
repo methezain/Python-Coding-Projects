@@ -2,7 +2,7 @@ import Resources_Data
 
 def formate_resources(resources):
     water = resources["water"]
-    milk = resources["milk"]
+    milk = resources["milk"] 
     coffee = resources["coffee"] 
     money = resources["money"]
     
@@ -17,9 +17,39 @@ def resource_checker(ingredients_dict):
     return True   
 
 
+def process_coins():
+    print("\n\nPlease Enter the coins, You have.")
+    
+    balance = 0
+    balance = int(input("How many Dollars? : "))  
+    balance += int(input("How many Quarters (0.25 $)? : ")) * 0.25
+    balance += int(input("How many dimes (0.1 $)? : ")) * 0.1
+    balance += int(input("How many nickels (0.05 $ )? : ")) * 0.05
+    balance += int(input("How many pennies (0.01 $)? : ")) * 0.01
+    
+    return balance
 
 
+def transaction_process(money_received, drink_cost):
+    if money_received >= drink_cost:
+        
+        Resources_Data.resources["money"] += money_received
+        
+        change = round(money_received - drink_cost , 2) 
+        print(f"\n=======================\nHere are {change}$ in change.\n=======================")  
+        return True
+    else:
+        print(f"\n\n=================\nSorry, not enough money. {drink_cost - money_received} $ more money is required.\n=================") 
+        return False
 
+
+def make_coffee_ready(drink_name, drink_ingredients):
+    for i in drink_ingredients:
+        Resources_Data.resources[i] -= drink_ingredients[i] 
+        
+    print(f"\n==================================\nHere is your {drink_name}. Enjoy!\n==================================") 
+    
+    
 
 
 # main body
@@ -27,7 +57,7 @@ def resource_checker(ingredients_dict):
 next_customer = True
 
 while next_customer:
-    user_choice = input("​What would you like? ( Espresso/  Latte /  Cappuccino): ").lower()
+    user_choice = input("What would you like? ( Espresso/  Latte /  Cappuccino): ").lower()
     
     if user_choice == "off":
         break 
@@ -37,6 +67,9 @@ while next_customer:
         drink = Resources_Data.MENU[user_choice] 
 
         if resource_checker(drink["ingredients"]):
-            print("you can get a drink.")
+            payment = process_coins()
+            
+            if transaction_process(payment, drink["cost"]):
+                make_coffee_ready(user_choice , drink["ingredients"])
             
              
