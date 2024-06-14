@@ -1,12 +1,9 @@
 import Resources_Data
 
 def formate_resources(resources):
-    water = resources["water"]
-    milk = resources["milk"] 
-    coffee = resources["coffee"] 
-    money = resources["money"]
     
-    return f"===============\nWater : {water} mg\nMilk : {milk} mg\nCoffee : {coffee} mg\nMoney : {money} $\n==============="
+    return f"===============\nWater : {Resources_Data.resources["water"]} mg\nMilk : {Resources_Data.resources["milk"]} mg\nCoffee : {Resources_Data.resources["coffee"]} mg\nMoney : {Resources_Data.resources["money"]} $\n==============="
+
 
 
 def resource_checker(ingredients_dict):
@@ -27,16 +24,16 @@ def process_coins():
     balance += int(input("How many nickels (0.05 $ )? : ")) * 0.05
     balance += int(input("How many pennies (0.01 $)? : ")) * 0.01
     
-    return balance
+    return balance 
 
 
 def transaction_process(money_received, drink_cost):
     if money_received >= drink_cost:
         
-        Resources_Data.resources["money"] += money_received
+        Resources_Data.resources["money"] += drink_cost 
         
         change = round(money_received - drink_cost , 2) 
-        print(f"\n=======================\nHere are {change}$ in change.\n=======================")  
+        print(f"\n==========================\nHere are {change}$ in change.\n==========================")  
         return True
     else:
         print(f"\n\n=================\nSorry, not enough money. {drink_cost - money_received} $ more money is required.\n=================") 
@@ -72,4 +69,3 @@ while next_customer:
             if transaction_process(payment, drink["cost"]):
                 make_coffee_ready(user_choice , drink["ingredients"])
             
-             
