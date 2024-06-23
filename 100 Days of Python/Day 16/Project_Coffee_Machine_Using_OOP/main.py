@@ -5,6 +5,8 @@
 ## 4- check transaction successful 
 ## 5- Make Coffee 
 
+## the purpose is only to use classes, and objects.
+
 
 from menu import Menu, MenuItem
 from coffee_maker import CoffeeMaker
