@@ -31,11 +31,7 @@ while is_on:
         profit.report()
     else: 
         drink = menu.find_drink(choice) 
-         
-        resource_checking = coffee.is_resource_sufficient(drink)    
-        if resource_checking:
-            payment = profit.make_payment(drink.cost)  
-            if payment == True:
-                your_coffee = coffee.make_coffee(drink )  
+        if coffee.is_resource_sufficient(drink) and profit.make_payment(drink.cost): 
+            coffee.make_coffee(drink )  
     
     

@@ -64,7 +64,7 @@ while next_customer:
         drink = Resources_Data.MENU[user_choice] 
 
         if resource_checker(drink["ingredients"]):
-            payment = process_coins()
+            payment = process_coins() 
             
             if transaction_process(payment, drink["cost"]):
                 make_coffee_ready(user_choice , drink["ingredients"])
