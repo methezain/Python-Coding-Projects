@@ -9,7 +9,7 @@ for item in question_data:
     question_answer = item["answer"] 
     
     new_question = Question(question_text, question_answer)
-    question_bank.append(new_question)
+    question_bank.append(new_question) 
     
 
 quiz = QuizBrain(question_bank)
