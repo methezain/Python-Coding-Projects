@@ -6,7 +6,7 @@ canvas.colormode(255)
 
 timmy = t()
 timmy.shape("classic")
-timmy.speed("fastest")
+timmy.speed(3)
 
 def random_color():
     r = random.randint(0,255)
